@@ -11,7 +11,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable', 'rxjs/add/
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, http_1, Observable_1, github_service_1;
-    var AppComponent;
+    var GitHubProfileComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -28,15 +28,15 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable', 'rxjs/add/
                 github_service_1 = github_service_1_1;
             }],
         execute: function() {
-            AppComponent = (function () {
-                function AppComponent(_gitHubService) {
+            GitHubProfileComponent = (function () {
+                function GitHubProfileComponent(_gitHubService) {
                     this._gitHubService = _gitHubService;
                     this.isLoading = true;
-                    this.username = "dilispersona";
+                    this.username = "octocat";
                     this.user = {};
                     this.followers = [];
                 }
-                AppComponent.prototype.ngOnInit = function () {
+                GitHubProfileComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     Observable_1.Observable.forkJoin(this._gitHubService.getUser(this.username), this._gitHubService.getFollowers(this.username))
                         .subscribe(function (res) {
@@ -44,9 +44,9 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable', 'rxjs/add/
                         _this.followers = res[1];
                     }, null, function () { _this.isLoading = false; });
                 };
-                AppComponent = __decorate([
+                GitHubProfileComponent = __decorate([
                     core_1.Component({
-                        selector: 'my-app',
+                        selector: 'github-profile',
                         styles: [
                             "\n            .avatar {\n                width: 100;\n                height: 100;\n                border-radius: 100%;\n            }\n        "
                         ],
@@ -54,11 +54,11 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable', 'rxjs/add/
                         providers: [http_1.HTTP_PROVIDERS, github_service_1.GitHubService]
                     }), 
                     __metadata('design:paramtypes', [github_service_1.GitHubService])
-                ], AppComponent);
-                return AppComponent;
+                ], GitHubProfileComponent);
+                return GitHubProfileComponent;
             }());
-            exports_1("AppComponent", AppComponent);
+            exports_1("GitHubProfileComponent", GitHubProfileComponent);
         }
     }
 });
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=github-profile.component.js.map

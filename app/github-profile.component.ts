@@ -6,7 +6,7 @@ import 'rxjs/add/observable/forkJoin';
 import {GitHubService} from './github.service';
 
 @Component({
-    selector: 'my-app',
+    selector: 'github-profile',
     styles: [
         `
             .avatar {
@@ -35,9 +35,9 @@ import {GitHubService} from './github.service';
     `,
     providers: [HTTP_PROVIDERS, GitHubService]
 })
-export class AppComponent implements OnInit {
+export class GitHubProfileComponent implements OnInit {
     isLoading = true;
-    username = "dilispersona";
+    username = "octocat";
     user = {}; 
     followers = [];
     
